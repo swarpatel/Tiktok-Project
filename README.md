@@ -78,6 +78,7 @@ Throughout these project notebooks, you'll see references to the problem-solving
 
 ## **PACE: Analyze**
 
+</br></br>
 
 ### **Task 2a. Imports and data loading**
 
