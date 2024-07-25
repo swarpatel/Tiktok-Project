@@ -447,8 +447,6 @@ Each row represents a video associated with a "claim". The claim_status indicate
 
     Video ID: Each row has a unique identifier for the video, represented by the video_id
 	
-</br>
-
     Video Duration: The duration of each video is given in seconds by the video_duration_sec
 
     Video Transcription: 
