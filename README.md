@@ -37,7 +37,7 @@ Throughout these project notebooks, you'll see references to the problem-solving
 
 # **PACE stages**
 
-
+</br></br></br>
 
 <img src="images/Plan.png" width="100" height="100" align=left>
 
