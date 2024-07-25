@@ -445,8 +445,7 @@ data.describe()
     Claim Status: 
 Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
 
-    Video ID: 
-Each row has a unique identifier for the video, represented by the video_id
+    Video ID: Each row has a unique identifier for the video, represented by the video_id
 
     Video Duration: 
 The duration of each video is given in seconds by the video_duration_sec
