@@ -509,18 +509,18 @@ The count for numeric columns #, video_id, and video_duration_sec is consistent 
 
 * Means and Medians:
 
-The mean video_duration_sec is approximately 32.42 seconds.
+	The mean video_duration_sec is approximately 32.42 seconds.
 
-The mean values for engagement metrics are significantly higher than the median (50th percentile), suggesting skewed distributions with some very high values.
+	The mean values for engagement metrics are significantly higher than the median (50th percentile), suggesting skewed distributions with some very high values.
 
 * Standard Deviations: 
 The high standard deviations in video_view_count, video_like_count, video_share_count, video_download_count, and video_comment_count indicate high variability.
 
 * Min and Max Values:
 
-The minimum values for engagement metrics (views, likes, shares, downloads, comments) are 0 or very low.
+	The minimum values for engagement metrics (views, likes, shares, downloads, comments) are 0 or very low.
 
-The maximum values are very high, especially for video_view_count (999,817), video_like_count (657,830), video_share_count (256,130), video_download_count (14,994), and video_comment_count (9,599).
+	The maximum values are very high, especially for video_view_count (999,817), video_like_count (657,830), video_share_count (256,130), video_download_count (14,994), and video_comment_count (9,599).
 
 * Potential Outliers: 
 The large range and high maximum values compared to the median suggest the presence of outliers in the engagement metrics.
