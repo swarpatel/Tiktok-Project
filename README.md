@@ -442,28 +442,39 @@ data.describe()
 
 ### 1. Observations about the data from looking at the first 10 rows
 
-    Claim Status: Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
-</br>
-    Video ID: Each row has a unique identifier for the video, represented by the video_id
-</br>
-    Video Duration: The duration of each video is given in seconds by the video_duration_sec
-</br>
-    Video Transcription: The video_transcription_text column provides a textual transcript of the video content
-</br>
-    Verification and Ban Status: The verified_status indicates if the video is verified, and the author_ban_status shows the ban status of the author
-</br>
-    Engagement Metrics: The dataset includes several metrics related to video engagement:
-</br>
-    video_view_count: Number of views
-</br>
-    video_like_count: Number of likes
-</br>
-    video_share_count: Number of shares
-</br>
-    video_download_count: Number of downloads
-</br>
-    video_comment_count: Number of comments
-</br>
+    Claim Status: 
+* Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
+
+    Video ID: 
+* Each row has a unique identifier for the video, represented by the video_id
+
+    Video Duration: 
+* The duration of each video is given in seconds by the video_duration_sec
+
+    Video Transcription: 
+* The video_transcription_text column provides a textual transcript of the video content
+
+    Verification and Ban Status: 
+The verified_status indicates if the video is verified, and the author_ban_status shows the ban status of the author
+
+    Engagement Metrics: 
+The dataset includes several metrics related to video engagement:
+
+    video_view_count: 
+Number of views
+
+    video_like_count: 
+Number of likes
+
+    video_share_count: 
+Number of shares
+
+    video_download_count: 
+Number of downloads
+
+    video_comment_count: 
+Number of comments
+
     Each row, therefore, represents a single video along with its associated claim status, verification status, ban status, and various engagement metrics.
 
 ### 2. Data Info Observations
