@@ -454,75 +454,75 @@ The duration of each video is given in seconds by the video_duration_sec
 * Video Transcription: 
 The video_transcription_text column provides a textual transcript of the video content
 
-    Verification and Ban Status: 
+* Verification and Ban Status: 
 The verified_status indicates if the video is verified, and the author_ban_status shows the ban status of the author
 
-    Engagement Metrics: 
+* Engagement Metrics: 
 The dataset includes several metrics related to video engagement:
 
-    video_view_count: 
+* video_view_count: 
 Number of views
 
-    video_like_count: 
+* video_like_count: 
 Number of likes
 
-    video_share_count: 
+* video_share_count: 
 Number of shares
 
-    video_download_count: 
+* video_download_count: 
 Number of downloads
 
-    video_comment_count: 
+* video_comment_count: 
 Number of comments
 
     Each row, therefore, represents a single video along with its associated claim status, verification status, ban status, and various engagement metrics.
 
 ### 2. Data Info Observations
 
-    Non-null Counts: 
+* Non-null Counts: 
 There are some missing values in the columns claim_status, video_transcription_text, video_view_count, video_like_count, video_share_count, video_download_count, and video_comment_count.
 
-    claim_status: 
+* claim_status: 
 19084 non-null values out of 19382.
 
-    video_transcription_text: 
+* video_transcription_text: 
 19084 non-null values out of 19382.
 
-    The engagement metrics (video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count) also have 19084 non-null values.
+* The engagement metrics (video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count) also have 19084 non-null values.
 
     Data Types: 
 The data types vary among the columns:
 
-    Numeric columns: 
+* Numeric columns: 
 #, video_id, video_duration_sec, video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count (with video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count being float64, and the rest int64).
 
-    Object columns: 
+* Object columns: 
 claim_status, video_transcription_text, verified_status, author_ban_status.
 
-    Potential Issues: 
+* Potential Issues: 
 The presence of null values in key columns and the mix of data types.
 
 ### 3. Descriptive Statistics Observations
 
-    Counts: 
+* Counts: 
 The count for numeric columns #, video_id, and video_duration_sec is consistent at 19382, but for the engagement metrics, it is 19084, indicating missing data.
 
-    Means and Medians:
+* Means and Medians:
 
 The mean video_duration_sec is approximately 32.42 seconds.
 
 The mean values for engagement metrics are significantly higher than the median (50th percentile), suggesting skewed distributions with some very high values.
 
-    Standard Deviations: 
+* Standard Deviations: 
 The high standard deviations in video_view_count, video_like_count, video_share_count, video_download_count, and video_comment_count indicate high variability.
 
-    Min and Max Values:
+* Min and Max Values:
 
 The minimum values for engagement metrics (views, likes, shares, downloads, comments) are 0 or very low.
 
 The maximum values are very high, especially for video_view_count (999,817), video_like_count (657,830), video_share_count (256,130), video_download_count (14,994), and video_comment_count (9,599).
 
-    Potential Outliers: 
+* Potential Outliers: 
 The large range and high maximum values compared to the median suggest the presence of outliers in the engagement metrics.
 
     In summary, the dataset contains a mixture of numeric and categorical data with some missing values and potential outliers, particularly in the engagement metrics. This initial review helps in understanding the overall structure and variability within the dataset, setting the stage for more detailed analysis and potential data cleaning steps.
