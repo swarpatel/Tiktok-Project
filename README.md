@@ -442,17 +442,17 @@ data.describe()
 
 ### 1. Observations about the data from looking at the first 10 rows
 
-    Claim Status: 
-* Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
+* Claim Status: 
+Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
 
-    Video ID: 
-* Each row has a unique identifier for the video, represented by the video_id
+* Video ID: 
+Each row has a unique identifier for the video, represented by the video_id
 
-    Video Duration: 
-* The duration of each video is given in seconds by the video_duration_sec
+* Video Duration: 
+The duration of each video is given in seconds by the video_duration_sec
 
-    Video Transcription: 
-* The video_transcription_text column provides a textual transcript of the video content
+* Video Transcription: 
+The video_transcription_text column provides a textual transcript of the video content
 
     Verification and Ban Status: 
 The verified_status indicates if the video is verified, and the author_ban_status shows the ban status of the author
