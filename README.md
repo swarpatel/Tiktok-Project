@@ -2,6 +2,8 @@
 
 Welcome to the TikTok Project!
 
+#### Case Study:
+
 You have just started as a data professional at TikTok.
 
 The team is still in the early stages of the project. You have received notice that TikTok's leadership team has approved the project proposal. To gain clear insights to prepare for a claims classification model, TikTok's provided data must be examined to begin the process of exploratory data analysis (EDA).
@@ -31,21 +33,7 @@ The team is still in the early stages of the project. You have received notice t
 # **Identify data types and compile summary information**
 
 
-Throughout these project notebooks, you'll see references to the problem-solving framework PACE. The following notebook components are labeled with the respective PACE stage: Plan, Analyze, Construct, and Execute.
-
-<img src="images/Pace.png" width="100" height="100" align=left>
-
-# **PACE stages**
-
-</br></br></br>
-
-<img src="images/Plan.png" width="100" height="100" align=left>
-
-
-## **PACE: Plan**
-
-
-### **Task 1. Understand the situation**
+### **Understand the situation**
 
 #### How can you best prepare to understand and organize the provided information?
 
@@ -74,13 +62,7 @@ Throughout these project notebooks, you'll see references to the problem-solving
     Dataset scrubbed for exploratory data analysis, visualizations, statistical model, regression analysis and/or machine learning model.
 
 
-<img src="images/Analyze.png" width="100" height="100" align=left>
-
-## **PACE: Analyze**
-
-</br></br>
-
-### **Task 2a. Imports and data loading**
+### **Imports and data loading**
 
 
 
@@ -99,7 +81,7 @@ Then, load the dataset into a dataframe. Creating a dataframe will help conduct 
 data = pd.read_csv("tiktok_dataset.csv")
 ```
 
-### **Task 2b. Understand the data - Inspect the data**
+### **Understand the data - Inspect the data**
 
 *Consider the following questions:*
 
@@ -119,6 +101,19 @@ data.head(10)
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -331,6 +326,19 @@ data.describe()
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -442,92 +450,92 @@ data.describe()
 
 ### 1. Observations about the data from looking at the first 10 rows
 
-* Claim Status: 
+    Claim Status: 
 Each row represents a video associated with a "claim". The claim_status indicates the current state of the claim related to the video (e.g., "claim")
 
-* Video ID: 
+    Video ID: 
 Each row has a unique identifier for the video, represented by the video_id
 
-* Video Duration: 
+    Video Duration: 
 The duration of each video is given in seconds by the video_duration_sec
 
-* Video Transcription: 
+    Video Transcription: 
 The video_transcription_text column provides a textual transcript of the video content
 
-* Verification and Ban Status: 
+    Verification and Ban Status: 
 The verified_status indicates if the video is verified, and the author_ban_status shows the ban status of the author
 
-* Engagement Metrics: 
+    Engagement Metrics: 
 The dataset includes several metrics related to video engagement:
 
-* video_view_count: 
+    video_view_count: 
 Number of views
 
-* video_like_count: 
+    video_like_count: 
 Number of likes
 
-* video_share_count: 
+    video_share_count: 
 Number of shares
 
-* video_download_count: 
+    video_download_count: 
 Number of downloads
 
-* video_comment_count: 
+    video_comment_count: 
 Number of comments
 
     Each row, therefore, represents a single video along with its associated claim status, verification status, ban status, and various engagement metrics.
 
 ### 2. Data Info Observations
 
-* Non-null Counts: 
+    Non-null Counts: 
 There are some missing values in the columns claim_status, video_transcription_text, video_view_count, video_like_count, video_share_count, video_download_count, and video_comment_count.
 
-* claim_status: 
+    claim_status: 
 19084 non-null values out of 19382.
 
-* video_transcription_text: 
+    video_transcription_text: 
 19084 non-null values out of 19382.
 
-* The engagement metrics (video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count) also have 19084 non-null values.
+    The engagement metrics (video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count) also have 19084 non-null values.
 
     Data Types: 
 The data types vary among the columns:
 
-* Numeric columns: 
+    Numeric columns: 
 #, video_id, video_duration_sec, video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count (with video_view_count, video_like_count, video_share_count, video_download_count, video_comment_count being float64, and the rest int64).
 
-* Object columns: 
+    Object columns: 
 claim_status, video_transcription_text, verified_status, author_ban_status.
 
-* Potential Issues: 
+    Potential Issues: 
 The presence of null values in key columns and the mix of data types.
 
 ### 3. Descriptive Statistics Observations
 
-* Counts: 
+    Counts: 
 The count for numeric columns #, video_id, and video_duration_sec is consistent at 19382, but for the engagement metrics, it is 19084, indicating missing data.
 
-* Means and Medians:
+    Means and Medians:
 
-	The mean video_duration_sec is approximately 32.42 seconds.
+The mean video_duration_sec is approximately 32.42 seconds.
 
-	The mean values for engagement metrics are significantly higher than the median (50th percentile), suggesting skewed distributions with some very high values.
+The mean values for engagement metrics are significantly higher than the median (50th percentile), suggesting skewed distributions with some very high values.
 
-* Standard Deviations: 
+    Standard Deviations: 
 The high standard deviations in video_view_count, video_like_count, video_share_count, video_download_count, and video_comment_count indicate high variability.
 
-* Min and Max Values:
+    Min and Max Values:
 
-	The minimum values for engagement metrics (views, likes, shares, downloads, comments) are 0 or very low.
+The minimum values for engagement metrics (views, likes, shares, downloads, comments) are 0 or very low.
 
-	The maximum values are very high, especially for video_view_count (999,817), video_like_count (657,830), video_share_count (256,130), video_download_count (14,994), and video_comment_count (9,599).
+The maximum values are very high, especially for video_view_count (999,817), video_like_count (657,830), video_share_count (256,130), video_download_count (14,994), and video_comment_count (9,599).
 
-* Potential Outliers: 
+    Potential Outliers: 
 The large range and high maximum values compared to the median suggest the presence of outliers in the engagement metrics.
 
     In summary, the dataset contains a mixture of numeric and categorical data with some missing values and potential outliers, particularly in the engagement metrics. This initial review helps in understanding the overall structure and variability within the dataset, setting the stage for more detailed analysis and potential data cleaning steps.
 
-### **Task 2c. Understand the data - Investigate the variables**
+### **Understand the data - Investigate the variables**
 
 A good first step towards understanding the data might be examining the `claim_status` variable.
 
@@ -603,6 +611,19 @@ data.groupby(['claim_status', 'author_ban_status']).count()[['#']]
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -701,6 +722,23 @@ data.groupby(['author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -772,6 +810,19 @@ data.groupby(['author_ban_status']).median(numeric_only=True)[['video_share_coun
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -828,6 +879,23 @@ data.groupby(['author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -942,6 +1010,23 @@ data.groupby(['claim_status', 'author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -1059,9 +1144,7 @@ data.groupby(['claim_status', 'author_ban_status']).agg(
 
 
 
-**Question:**
-
-How does the data for claim videos and opinion videos compare or differ? Consider views, comments, likes, and shares.
+**How does the data for claim videos and opinion videos compare or differ? Consider views, comments, likes, and shares.**
 
 * Videos by banned authors and those under review generally receive significantly more views, likes, and shares compared to videos by active authors. However, when a video is viewed, the engagement rate depends more on the video's claim status than the author's ban status.
 
@@ -1069,33 +1152,15 @@ How does the data for claim videos and opinion videos compare or differ? Conside
 
 * For claim videos, banned authors have slightly higher likes-to-views and shares-to-views ratios compared to active authors or those under review. Conversely, for opinion videos, active authors and those under review achieve higher engagement rates in all categories than banned authors.
 
-<img src="images/Construct.png" width="100" height="100" align=left>
-
-## **PACE: Construct**
-
-**Note**: The Construct stage does not apply to this workflow.
-
-
-
-
-<img src="images/Execute.png" width="100" height="100" align=left>
-
-## **PACE: Execute**
-
-
-### **Given your efforts, what can you summarize for Rosie Mae Bradshaw and the TikTok data team?**
-
-*Note for Learners: Your answer should address TikTok's request for a summary that covers the following points:*
-
-*   What percentage of the data is comprised of claims and what percentage is comprised of opinions?
+**What percentage of the data is comprised of claims and what percentage is comprised of opinions?**
 
     `Out of the 19,382 samples in this dataset, around 50% are claims, totaling 9,608.`
 
-*   What factors correlate with a video's claim status?
+**What factors correlate with a video's claim status?**
 
     `Engagement levels are highly correlated with claim status, warranting further investigation.`
 
-*   What factors correlate with a video's engagement level?
+**What factors correlate with a video's engagement level?**
 
     `Videos by banned authors exhibit significantly higher engagement than those by active authors, with videos by authors under review displaying engagement levels between the two.`
 
