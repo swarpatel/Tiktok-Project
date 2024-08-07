@@ -1114,7 +1114,7 @@ boxplotter('video_duration_sec')
 
 
     
-![png](output_40_0.png)
+![png](img/output_40_0.png)
     
 
 
@@ -1127,7 +1127,7 @@ plt.title('Video duration histogram');
 
 
     
-![png](output_41_0.png)
+![png](img/output_41_0.png)
     
 
 
@@ -1144,7 +1144,7 @@ boxplotter('video_view_count')
 
 
     
-![png](output_44_0.png)
+![png](img/output_44_0.png)
     
 
 
@@ -1157,7 +1157,7 @@ plt.title('Video view count histogram');
 
 
     
-![png](output_45_0.png)
+![png](img/output_45_0.png)
     
 
 
@@ -1174,7 +1174,7 @@ boxplotter('video_like_count')
 
 
     
-![png](output_48_0.png)
+![png](img/output_48_0.png)
     
 
 
@@ -1189,7 +1189,7 @@ plt.title('Video like count histogram');
 
 
     
-![png](output_49_0.png)
+![png](img/output_49_0.png)
     
 
 
@@ -1206,7 +1206,7 @@ boxplotter('video_comment_count')
 
 
     
-![png](output_52_0.png)
+![png](img/output_52_0.png)
     
 
 
@@ -1219,7 +1219,7 @@ plt.title('Video comment count histogram');
 
 
     
-![png](output_53_0.png)
+![png](img/output_53_0.png)
     
 
 
@@ -1236,7 +1236,7 @@ boxplotter('video_share_count')
 
 
     
-![png](output_56_0.png)
+![png](img/output_56_0.png)
     
 
 
@@ -1249,7 +1249,7 @@ plt.title('Video share count histogram');
 
 
     
-![png](output_57_0.png)
+![png](img/output_57_0.png)
     
 
 
@@ -1266,7 +1266,7 @@ boxplotter('video_download_count')
 
 
     
-![png](output_60_0.png)
+![png](img/output_60_0.png)
     
 
 
@@ -1279,7 +1279,7 @@ plt.title('Video download count histogram');
 
 
     
-![png](output_61_0.png)
+![png](img/output_61_0.png)
     
 
 
@@ -1302,7 +1302,7 @@ plt.title('Claims by verification status histogram');
 
 
     
-![png](output_64_0.png)
+![png](img/output_64_0.png)
     
 
 
@@ -1324,7 +1324,7 @@ plt.title('Claim status by author ban status - counts');
 
 
     
-![png](output_67_0.png)
+![png](img/output_67_0.png)
     
 
 
@@ -1349,7 +1349,7 @@ plt.title('Median view count by ban status');
 
 
     
-![png](output_70_0.png)
+![png](img/output_70_0.png)
     
 
 
@@ -1381,7 +1381,7 @@ plt.title('Total views by video claim status');
 
 
     
-![png](output_74_0.png)
+![png](img/output_74_0.png)
     
 
 
@@ -1428,7 +1428,7 @@ plt.show()
 
 
     
-![png](output_78_0.png)
+![png](img/output_78_0.png)
     
 
 
@@ -1446,7 +1446,7 @@ plt.show()
 
 
     
-![png](output_80_0.png)
+![png](img/output_80_0.png)
     
 
 
