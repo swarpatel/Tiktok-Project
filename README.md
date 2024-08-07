@@ -71,6 +71,9 @@ The team is still in the early stages of the project. You have received notice t
 # Import packages
 import pandas as pd
 import numpy as np
+
+import warnings
+warnings.filterwarnings('ignore')
 ```
 
 Then, load the dataset into a dataframe. Creating a dataframe will help conduct data manipulation, exploratory data analysis (EDA), and statistical activities.
@@ -101,6 +104,19 @@ data.head(10)
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -313,6 +329,19 @@ data.describe()
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -585,6 +614,19 @@ data.groupby(['claim_status', 'author_ban_status']).count()[['#']]
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -683,6 +725,23 @@ data.groupby(['author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -754,6 +813,19 @@ data.groupby(['author_ban_status']).median(numeric_only=True)[['video_share_coun
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -810,6 +882,23 @@ data.groupby(['author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -924,6 +1013,23 @@ data.groupby(['claim_status', 'author_ban_status']).agg(
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr>
@@ -1061,3 +1167,383 @@ data.groupby(['claim_status', 'author_ban_status']).agg(
 
     `Videos by banned authors exhibit significantly higher engagement than those by active authors, with videos by authors under review displaying engagement levels between the two.`
 
+
+### Case Study
+
+Your TikTok data team is still in the early stages of their latest project. So far, you’ve completed a project proposal and used Python to inspect and organize the TikTok dataset.
+
+Orion Rainier, a Data Scientist at TikTok, is pleased with the work you have already completed and is requesting your assistance with some Exploratory Data Analysis (EDA) and data visualization. The management team asked to see a Python notebook showing data structuring and cleaning, as well as any matplotlib/seaborn visualizations plotted to help us understand the data. At the very least, include a graph comparing claim counts to opinion counts, as well as boxplots of the most important variables (like “video duration,” “video like count,” “video comment count,” and “video view count”) to check for outliers. Also, include a breakdown of “author ban status” counts.
+
+Additionally, the management team has recently asked all EDA to include Tableau visualizations. Tableau visualizations are particularly helpful in status reports to the client and board members. For this data, create a Tableau dashboard showing a simple claims versus opinions count, as well as stacked bar charts of claims versus opinions for variables like video view counts, video like counts, video share counts, and video download counts. Make sure it is easy to understand to someone who isn’t data savvy, and remember that the assistant director is a person with visual impairments.
+
+**The goal** is to create visualizations and evaluate results.
+<br/>
+
+
+```python
+# Import packages for data visualization
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+
+```python
+df = data
+```
+
+
+```python
+#Helper function to create box plot
+def boxplotter(column_str):    # **kwargs = any keyword arguments
+    plt.figure(figsize=(15,3))
+    sns.boxplot(x=df[column_str], fliersize=1)
+    plt.title(f'{column_str} box plot');
+```
+
+#### **video_duration_sec**
+
+
+```python
+# Create a boxplot to visualize distribution of `video_duration_sec`
+boxplotter('video_duration_sec')
+```
+
+
+    
+![png](output_40_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data['video_duration_sec'], bins=range(0,61,5))
+plt.title('Video duration histogram');
+```
+
+
+    
+![png](output_41_0.png)
+    
+
+
+The box plot shows the distribution of video durations, indicating a range from approximately 10 to 60 seconds with a median around 40 seconds. 
+
+The histogram reveals a roughly uniform distribution of video durations across the 5 to 60-second range, with a slight increase at the 60-second mark.
+
+#### **video_view_count**
+
+
+```python
+boxplotter('video_view_count')
+```
+
+
+    
+![png](output_44_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data['video_view_count'], bins=range(0,(10**6+1),10**5))
+plt.title('Video view count histogram');
+```
+
+
+    
+![png](output_45_0.png)
+    
+
+
+The box plot for video view counts shows a wide range with many videos having up to 1 million views, and a significant concentration of data points below 400,000 views. 
+
+The histogram highlights that most videos have low view counts, with a large number of videos clustered at the lower end of the spectrum.
+
+#### **video_like_count**
+
+
+```python
+boxplotter('video_like_count')
+```
+
+
+    
+![png](output_48_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+ax = sns.histplot(data['video_like_count'], bins=range(0,(7*10**5+1),10**5))
+labels = [0] + [str(i) + 'k' for i in range(100, 701, 100)]
+ax.set_xticks(range(0,7*10**5+1,10**5), labels=labels)
+plt.title('Video like count histogram');
+```
+
+
+    
+![png](output_49_0.png)
+    
+
+
+The box plot for video like counts shows a large spread with many outliers, indicating that most videos have fewer than 100,000 likes, but some reach over 600,000. 
+
+The histogram confirms this, displaying a steep decline in frequency as the like count increases, with most videos having under 100,000 likes.
+
+#### **video_comment_count**
+
+
+```python
+boxplotter('video_comment_count')
+```
+
+
+    
+![png](output_52_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data['video_comment_count'], bins=range(0,(3001),100))
+plt.title('Video comment count histogram');
+```
+
+
+    
+![png](output_53_0.png)
+    
+
+
+The box plot for video comment counts shows that most videos have fewer than 500 comments, with many outliers extending up to nearly 10,000 comments. 
+
+The histogram illustrates a steep drop-off, indicating that the vast majority of videos have very few comments, with a long tail of videos having progressively higher comment counts. The distribution is very right-skewed.
+
+#### **video_share_count**
+
+
+```python
+boxplotter('video_share_count')
+```
+
+
+    
+![png](output_56_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data['video_share_count'], bins=range(0,(270001),10000))
+plt.title('Video share count histogram');
+```
+
+
+    
+![png](output_57_0.png)
+    
+
+
+The box plot for video share counts indicates that most videos have fewer than 50,000 shares, with many outliers reaching up to 270,000. 
+
+The histogram shows a sharp decline, demonstrating that the majority of videos have very few shares, with a few videos having significantly higher share counts.
+
+#### **video_download_count**
+
+
+```python
+boxplotter('video_download_count')
+```
+
+
+    
+![png](output_60_0.png)
+    
+
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data['video_download_count'], bins=range(0,(15001),500))
+plt.title('Video download count histogram');
+```
+
+
+    
+![png](output_61_0.png)
+    
+
+
+The box plot for video download counts shows that most videos have fewer than 2,000 downloads, with numerous outliers extending up to around 15,000. 
+
+The histogram reveals that the majority of videos have a low download count, with a steep decline as the number of downloads increases.
+
+#### **Claim status by verification status**
+
+
+```python
+plt.figure(figsize=(15,7))
+sns.histplot(data=data,
+             x='claim_status',
+             hue='verified_status',
+             multiple='dodge',
+             shrink=0.9)
+plt.title('Claims by verification status histogram');
+```
+
+
+    
+![png](output_64_0.png)
+    
+
+
+The histogram displays that most claims and opinions are not verified, with significantly fewer verified entries. Specifically, non-verified claims and opinions are much higher in number compared to verified ones.
+
+#### **Claim status by author ban status**
+
+
+```python
+fig = plt.figure(figsize=(15,7))
+sns.histplot(data, x='claim_status', hue='author_ban_status',
+             multiple='dodge',
+             hue_order=['active', 'under review', 'banned'],
+             shrink=0.9,
+             palette={'active':'#337357', 'under review':'#FFD23F', 'banned':'#EE4266'},
+             alpha=0.5)
+plt.title('Claim status by author ban status - counts');
+```
+
+
+    
+![png](output_67_0.png)
+    
+
+
+Most claims and opinions are from active authors, with fewer entries from authors under review or banned. The distribution highlights that active authors contribute significantly more claims and opinions compared to those under review or banned.
+
+#### **Median view counts by ban status**
+
+
+```python
+ban_status_counts = data.groupby(['author_ban_status']).median(
+    numeric_only=True).reset_index()
+
+fig = plt.figure(figsize=(15,7))
+sns.barplot(data=ban_status_counts,
+            x='author_ban_status',
+            y='video_view_count',
+            order=['active', 'under review', 'banned'],
+            palette={'active':'#337357', 'under review':'#FFD23F', 'banned':'#EE4266'},
+            alpha=0.5)
+plt.title('Median view count by ban status');
+```
+
+
+    
+![png](output_70_0.png)
+    
+
+
+The bar plot illustrates the median view count for videos by the author's ban status. It shows that videos from banned authors have the highest median view counts, followed by those under review, while videos from active authors have significantly lower median view counts.
+
+
+```python
+data.groupby('claim_status')['video_view_count'].median()
+```
+
+
+
+
+    claim_status
+    claim      501555.0
+    opinion      4953.0
+    Name: video_view_count, dtype: float64
+
+
+
+#### **Total views by claim status**
+
+
+```python
+fig = plt.figure(figsize=(7,7))
+plt.pie(data.groupby('claim_status')['video_view_count'].sum(), labels=['claim', 'opinion'])
+plt.title('Total views by video claim status');
+```
+
+
+    
+![png](output_74_0.png)
+    
+
+
+The pie chart shows the total views by video claim status, indicating that the vast majority of views come from claims, with a very small proportion from opinions. This suggests that claim videos are significantly more popular or more frequently viewed compared to opinion videos.
+
+### **Determine outliers**
+
+
+```python
+count_cols = ['video_view_count',
+              'video_like_count',
+              'video_share_count',
+              'video_download_count',
+              'video_comment_count',
+              ]
+
+for column in count_cols:
+    q1 = data[column].quantile(0.25)
+    q3 = data[column].quantile(0.75)
+    iqr = q3 - q1
+    median = data[column].median()
+    outlier_threshold = median + 1.5*iqr
+
+    # Count the number of values that exceed the outlier threshold
+    outlier_count = (data[column] > outlier_threshold).sum()
+    print(f'Number of outliers, {column}:', outlier_count)
+```
+
+    Number of outliers, video_view_count: 2343
+    Number of outliers, video_like_count: 3468
+    Number of outliers, video_share_count: 3732
+    Number of outliers, video_download_count: 3733
+    Number of outliers, video_comment_count: 3882
+    
+
+
+```python
+# Create a scatterplot of `video_view_count` versus `video_like_count` according to 'claim_status'
+fig = plt.figure(figsize=(12,7))
+sns.scatterplot(x=data["video_view_count"], y=data["video_like_count"],
+                hue=data["claim_status"], s=10, alpha=.3)
+plt.show()
+```
+
+
+    
+![png](output_78_0.png)
+    
+
+
+The scatter plot reveals a positive correlation between views and likes, indicating that videos with higher view counts tend to have more likes. The plot also shows a higher density of claim videos compared to opinion videos.
+
+
+```python
+# Create a scatterplot of `video_view_count` versus `video_like_count` for opinions only
+fig = plt.figure(figsize=(12,7))
+opinion = data[data['claim_status']=='opinion']
+sns.scatterplot(x=opinion["video_view_count"], y=opinion["video_like_count"],
+                 s=10, alpha=.3)
+plt.show()
+```
+
+
+    
+![png](output_80_0.png)
+    
+
+
+The scatter plot shows that there is a positive correlation, indicating that opinion videos with higher view counts also tend to have more likes, although the density of points is lower compared to the overall dataset.
