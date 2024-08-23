@@ -1614,3 +1614,56 @@ data.head()
 </table>
 </div>
 
+We are interested in the relationship between `verified_status` and `video_view_count`. One approach is to examine the mean values of `video_view_count` for each group of `verified_status` in the sample data.
+
+
+```python
+# Compute the mean `video_view_count` for each group in `verified_status`
+data.groupby("verified_status")["video_view_count"].mean()
+```
+
+
+
+
+    verified_status
+    not verified    265663.785339
+    verified         91439.164167
+    Name: video_view_count, dtype: float64
+
+
+
+Goal is to conduct a two-sample t-test.
+
+Steps for conducting a hypothesis test:
+
+
+1.   State the null hypothesis and the alternative hypothesis
+2.   Choose a signficance level
+3.   Find the p-value
+4.   Reject or fail to reject the null hypothesis
+
+
+
+**$H_0$**: There is no difference in number of views between TikTok videos posted by verified accounts and TikTok videos posted by unverified accounts (any observed difference in the sample data is due to chance or sampling variability).
+
+**$H_A$**: There is a difference in number of views between TikTok videos posted by verified accounts and TikTok videos posted by unverified accounts (any observed difference in the sample data is due to an actual difference in the corresponding population means).
+
+Significance level: 5%
+
+
+```python
+# Conduct a two-sample t-test to compare means
+
+# Save each sample in a variable
+not_verified = data[data["verified_status"] == "not verified"]["video_view_count"]
+verified = data[data["verified_status"] == "verified"]["video_view_count"]
+
+# Implement a t-test using the two samples
+stats.ttest_ind(a=not_verified, b=verified, equal_var=False)
+```
+
+
+
+
+    TtestResult(statistic=25.499441780633777, pvalue=2.6088823687177823e-120, df=1571.163074387424)
+
