@@ -1451,3 +1451,11 @@ plt.show()
 
 
 The scatter plot shows that there is a positive correlation, indicating that opinion videos with higher view counts also tend to have more likes, although the density of points is lower compared to the overall dataset.
+
+
+# Case Study
+
+You are a data professional at TikTok. The current project is reaching its midpoint; a project proposal, Python coding work, and exploratory data analysis have all been completed.
+
+The team has reviewed the results of the exploratory data analysis and the previous executive summary the team prepared. You received an email from Orion Rainier, Data Scientist at TikTok, with your next assignment: determine and conduct the necessary hypothesis tests and statistical analysis for the TikTok classification project.
+
