@@ -1459,3 +1459,158 @@ You are a data professional at TikTok. The current project is reaching its midpo
 
 The team has reviewed the results of the exploratory data analysis and the previous executive summary the team prepared. You received an email from Orion Rainier, Data Scientist at TikTok, with your next assignment: determine and conduct the necessary hypothesis tests and statistical analysis for the TikTok classification project.
 
+# **Hypothesis testing**
+
+
+```python
+# Import packages for statistical analysis/hypothesis testing
+from scipy import stats
+```
+
+
+```python
+# Load dataset into dataframe
+data = pd.read_csv("tiktok_dataset.csv")
+```
+
+Check for and handle missing values.
+
+
+```python
+# Check for missing values
+data.isna().sum()
+```
+
+
+
+
+    #                             0
+    claim_status                298
+    video_id                      0
+    video_duration_sec            0
+    video_transcription_text    298
+    verified_status               0
+    author_ban_status             0
+    video_view_count            298
+    video_like_count            298
+    video_share_count           298
+    video_download_count        298
+    video_comment_count         298
+    dtype: int64
+
+
+
+
+```python
+# Drop rows with missing values
+data = data.dropna(axis=0)
+```
+
+
+```python
+# Display first few rows after handling missing values
+data.head()
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#</th>
+      <th>claim_status</th>
+      <th>video_id</th>
+      <th>video_duration_sec</th>
+      <th>video_transcription_text</th>
+      <th>verified_status</th>
+      <th>author_ban_status</th>
+      <th>video_view_count</th>
+      <th>video_like_count</th>
+      <th>video_share_count</th>
+      <th>video_download_count</th>
+      <th>video_comment_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>claim</td>
+      <td>7017666017</td>
+      <td>59</td>
+      <td>someone shared with me that drone deliveries a...</td>
+      <td>not verified</td>
+      <td>under review</td>
+      <td>343296.0</td>
+      <td>19425.0</td>
+      <td>241.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>claim</td>
+      <td>4014381136</td>
+      <td>32</td>
+      <td>someone shared with me that there are more mic...</td>
+      <td>not verified</td>
+      <td>active</td>
+      <td>140877.0</td>
+      <td>77355.0</td>
+      <td>19034.0</td>
+      <td>1161.0</td>
+      <td>684.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>claim</td>
+      <td>9859838091</td>
+      <td>31</td>
+      <td>someone shared with me that american industria...</td>
+      <td>not verified</td>
+      <td>active</td>
+      <td>902185.0</td>
+      <td>97690.0</td>
+      <td>2858.0</td>
+      <td>833.0</td>
+      <td>329.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>claim</td>
+      <td>1866847991</td>
+      <td>25</td>
+      <td>someone shared with me that the metro of st. p...</td>
+      <td>not verified</td>
+      <td>active</td>
+      <td>437506.0</td>
+      <td>239954.0</td>
+      <td>34812.0</td>
+      <td>1234.0</td>
+      <td>584.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>claim</td>
+      <td>7105231098</td>
+      <td>19</td>
+      <td>someone shared with me that the number of busi...</td>
+      <td>not verified</td>
+      <td>active</td>
+      <td>56167.0</td>
+      <td>34987.0</td>
+      <td>4110.0</td>
+      <td>547.0</td>
+      <td>152.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
