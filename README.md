@@ -1667,3 +1667,12 @@ stats.ttest_ind(a=not_verified, b=verified, equal_var=False)
 
     TtestResult(statistic=25.499441780633777, pvalue=2.6088823687177823e-120, df=1571.163074387424)
 
+Since the p-value is extremely small (much smaller than the significance level of 5%), we can reject the null hypothesis. This means we conclude that there **is** a statistically significant difference in the mean video view count between verified and unverified accounts on TikTok.
+
+
+The analysis indicates a statistically significant difference in the average view counts between videos from verified and unverified accounts, implying potential behavioral differences between these two groups. 
+
+To better understand this disparity, it would be worthwhile to explore underlying causes, such as whether unverified accounts are more likely to post clickbait content or if they are linked to spam bots that artificially boost view counts.
+
+The next step is to develop a regression model focusing on verified status. This is a logical progression since the ultimate goal is to predict claim status, and a regression model can provide insights into the behavior of verified users. Given the data's skewness and the notable difference in account types, a logistic regression model will be particularly important for this analysis
+
